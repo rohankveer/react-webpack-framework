@@ -1,7 +1,7 @@
 import './fast-refresh-fix';
 import { createRoot } from 'react-dom/client';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Routes,
   Route
 } from 'react-router-dom';
@@ -32,4 +32,4 @@ const App = () => {
 };
 
 const root = createRoot(document.getElementById('eui-app-container'));
-root.render(<App tab="home" />);
+root.render(<App />);

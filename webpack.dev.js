@@ -3,6 +3,7 @@ const path = require('path');
 const common = require('./webpack.common');
 const { merge } = require('webpack-merge');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 //const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = merge(common, {
@@ -17,6 +18,7 @@ module.exports = merge(common, {
       template: './app/index.html',
       publicPath: '/'
     }),
+    new ReactRefreshWebpackPlugin(),
     //new BundleAnalyzerPlugin()
   ],
   devServer: {
@@ -31,16 +33,5 @@ module.exports = merge(common, {
     historyApiFallback: true
   },
   devtool: 'source-map',
-  module: {
-    rules: [
-      {
-        test: /\.(scss|css)$/,
-        use: [
-          'style-loader', //3. Inject styles into DOM
-          'css-loader', //2. Turns css into commonjs
-          'sass-loader' //1. Turns sass into css
-        ]
-      }
-    ]
-  }
+  target: 'web'
 });

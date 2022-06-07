@@ -1,4 +1,4 @@
-import React from 'react';
+import './fast-refresh-fix';
 import { createRoot } from 'react-dom/client';
 import {
   BrowserRouter as Router,

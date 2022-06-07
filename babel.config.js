@@ -1,5 +1,6 @@
 // Cannot load "react-refresh/babel" in production
 const plugins = [];
+// eslint-disable-next-line no-undef
 if (process.env.NODE_ENV !== 'production') {
   plugins.push('react-refresh/babel');
 }

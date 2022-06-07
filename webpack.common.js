@@ -50,7 +50,22 @@ module.exports = {
             options: { publicPath: '' },
           },
           'css-loader',
-          'postcss-loader',
+          {
+            // Run postcss actions
+            loader: 'postcss-loader',
+            options: {
+              // `postcssOptions` is needed for postcss 8.x;
+              // if you use postcss 7.x skip the key
+              postcssOptions: {
+                // postcss plugins, can be exported to postcss.config.js
+                plugins: function () {
+                  return [
+                    require('autoprefixer')
+                  ];
+                }
+              }
+            }
+          },
           // according to the docs, sass-loader should be at the bottom, which
           // loads it first to avoid prefixes in your sourcemaps and other issues.
           'sass-loader',
@@ -63,7 +78,19 @@ module.exports = {
       {
         test: /.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: {
+          // without additional settings, this will reference .babelrc
+          loader: 'babel-loader',
+          options: {
+            /**
+             * From the docs: When set, the given directory will be used
+             * to cache the results of the loader. Future webpack builds
+             * will attempt to read from the cache to avoid needing to run
+             * the potentially expensive Babel recompilation process on each run.
+             */
+            cacheDirectory: true,
+          },
+        },
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif|ttf)$/i,

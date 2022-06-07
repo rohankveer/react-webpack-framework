@@ -2,7 +2,7 @@
   "name": "react-webpack-framework",
   "version": "1.0.0",
   "description": "Basic React Framework",
-  "main": "index.js",
+  "main": "index.jsx",
   "scripts": {
     "test": "jest --silent",
     "build": "cross-env NODE_ENV=production webpack --config webpack.prod.js",

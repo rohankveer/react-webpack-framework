@@ -17,9 +17,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
       - name: Install and Build
         run: |
-          npm i
+          npm install
           npm run build
 
       - name: Deploy
@@ -27,4 +32,3 @@ jobs:
         with:
           branch: gh-pages # The branch the action should deploy to.
           folder: dist # The folder the action should deploy.
-          node-version: ${{ matrix.node-version }}

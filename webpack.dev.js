@@ -4,7 +4,18 @@ const common = require('./webpack.common');
 const { merge } = require('webpack-merge');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+let plugins = [
+  new HtmlWebpackPlugin({
+    template: './app/index.html',
+    publicPath: '/'
+  }),
+  new ReactRefreshWebpackPlugin()
+];
+if (process.env.DEBUG === 'analyze') {
+  plugins.push(new BundleAnalyzerPlugin());
+}
 
 module.exports = merge(common, {
   mode: 'development',
@@ -13,14 +24,7 @@ module.exports = merge(common, {
     path: path.resolve(__dirname, 'dist'),
     chunkFilename: '[name].js'
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './app/index.html',
-      publicPath: '/'
-    }),
-    new ReactRefreshWebpackPlugin(),
-    //new BundleAnalyzerPlugin()
-  ],
+  plugins: plugins,
   devServer: {
     client: {
       overlay: true,

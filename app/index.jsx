@@ -11,7 +11,7 @@ import { Welcome } from './components/Welcome';
 import { ErrorLayout } from './components/ErrorLayout';
 import { MainLayout } from './components/MainLayout';
 import { PageLayout } from './components/PageLayout';
-import 'bootstrap'; // Can be changed to specific modules. eg. import 'bootstrap/js/dist/util';
+// import 'bootstrap'; // Can be changed to specific modules. eg. import 'bootstrap/js/dist/util'; Refer : https://getbootstrap.com/docs/5.0/customize/optimize/
 require('./main.scss');
 
 const App = () => {

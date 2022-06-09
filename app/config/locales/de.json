@@ -1,4 +1,4 @@
 {
-  "hello": "Hello text from locale : en",
+  "hello": "Hello text from locale : de",
   "dynamicVariables": "Passing dynamic variable {variable}"
 }

@@ -3,6 +3,7 @@ const path = require('path');
 const common = require('./webpack.common');
 const { merge } = require('webpack-merge');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var webpack = require('webpack');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -10,6 +11,9 @@ let plugins = [
   new HtmlWebpackPlugin({
     template: './app/index.html',
     publicPath: '/'
+  }),
+  new webpack.DefinePlugin({
+    __DEBUG__: true
   }),
   new ReactRefreshWebpackPlugin()
 ];

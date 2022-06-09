@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkreact_webpack_framework=self.webpackChunkreact_webpack_framework||[]).push([[382],{45382:function(e){e.exports=JSON.parse('{"hello":"Hello text from locale : de","dynamicVariables":"Passing dynamic variable {variable}"}')}}]);

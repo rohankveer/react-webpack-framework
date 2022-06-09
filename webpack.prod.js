@@ -6,6 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var webpack = require('webpack');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -25,6 +26,9 @@ module.exports = merge(common, {
           collapseWhitespace: true,
           removeComments: true
         }
+      }),
+      new webpack.DefinePlugin({
+        __DEBUG__: false
       })
     ]
   },

@@ -1,8 +1,10 @@
 import { Outlet } from 'react-router-dom';
 import { SideBar } from './SideBar';
 import Config from '../config/config.json';
+import Debug from '../common/Debug';
 
 function MainLayout() {
+  Debug.log('Hello from log');
   return (
     <div id='main-wrapper'>
       <SideBar />

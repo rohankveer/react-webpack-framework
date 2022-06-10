@@ -10,7 +10,8 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 let plugins = [
   new HtmlWebpackPlugin({
     template: './app/index.html',
-    publicPath: '/'
+    publicPath: '/',
+    favicon: 'images/favicon.png'
   }),
   new webpack.DefinePlugin({
     __DEBUG__: true

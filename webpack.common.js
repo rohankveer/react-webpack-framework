@@ -6,9 +6,6 @@ module.exports = {
   entry: {
     main: './app/index.jsx'
   },
-  output: {
-    assetModuleFilename: 'assets/[hash][ext][query]',
-  },
   // optimization
   optimization: {
     runtimeChunk: 'single',
@@ -78,8 +75,18 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif|ttf)$/i,
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
+        generator: {
+          filename: 'assets/images/[hash][ext][query]'
+        }
+      },
+      {
+        test: /\.(ttf)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[hash][ext][query]'
+        }
       }
     ]
   }

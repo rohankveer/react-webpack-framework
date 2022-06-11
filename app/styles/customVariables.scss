@@ -1,3 +1,17 @@
+/* Fonts */
+@font-face {
+    font-family: "NatoSansRegular";
+    src: url("../fonts/NotoSans-Regular.ttf");
+}
+@font-face {
+    font-family: "NatoSansBold";
+    src: url("../fonts/NotoSans-Bold.ttf");
+}
+
+$font-family-regular: "NatoSansRegular", sans-serif;
+$font-family-bold: "NatoSansBold", sans-serif;
+
 /* SCSS to override bootstrap variables */
-// check _variables.scss from bootstrap for variable names.
+/* check _variables.scss from bootstrap for variable names. */
+
 $primary: #6cb0f9;

@@ -45,8 +45,43 @@
     "react/jsx-uses-vars": "error",
     "no-useless-escape": 0,
     "no-prototype-builtins": "off",
-    "no-redeclare": ["error", { "builtinGlobals": false }]
+    "no-redeclare": [
+      "error",
+      {
+        "builtinGlobals": false
+      }
+    ]
   },
+  "overrides": [
+    {
+      "files": [
+        "**/*.ts",
+        "**/*.tsx"
+      ],
+      "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+      },
+      "rules": {
+        "react/no-undef": "off"
+      },
+      "globals": {
+        "React": false
+      },
+      "extends": [
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": "tsconfig.json"
+      },
+      "plugins": [
+        "@typescript-eslint"
+      ]
+    }
+  ],
   "globals": {
     "L10n": false,
     "moment": false,

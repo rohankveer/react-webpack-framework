@@ -28,12 +28,12 @@ module.exports = {
     },
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json'],
+    extensions: ['.js', '.jsx', '.json', '.tsx', '.ts'],
   },
   plugins: [
     new MiniCssExtractPlugin(),
     new ESLintPlugin({
-      extensions: ['js', 'jsx']
+      extensions: ['js', 'jsx', 'tsx', 'ts']
     })
   ],
   module: {
@@ -58,7 +58,7 @@ module.exports = {
         use: ['html-loader']
       },
       {
-        test: /.(js|jsx)$/,
+        test: /.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         use: {
           // without additional settings, this will reference .babelrc

@@ -1,11 +1,16 @@
 /* eslint-disable no-undef */
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
   entry: {
     main: './app/index.jsx'
   },
+  resolve: {
+    extensions: ['.js', '.jsx', '.json', '.tsx', '.ts'],
+  },
+  plugins: [
+    new MiniCssExtractPlugin()
+  ],
   // optimization
   optimization: {
     runtimeChunk: 'single',
@@ -27,15 +32,6 @@ module.exports = {
       },
     },
   },
-  resolve: {
-    extensions: ['.js', '.jsx', '.json'],
-  },
-  plugins: [
-    new MiniCssExtractPlugin(),
-    new ESLintPlugin({
-      extensions: ['js', 'jsx']
-    })
-  ],
   module: {
     rules: [
       {
@@ -58,7 +54,7 @@ module.exports = {
         use: ['html-loader']
       },
       {
-        test: /.(js|jsx)$/,
+        test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
         use: {
           // without additional settings, this will reference .babelrc
@@ -82,7 +78,7 @@ module.exports = {
         }
       },
       {
-        test: /\.(ttf)$/i,
+        test: /\.(woff(2)?|eot|ttf|otf)$/,
         type: 'asset/resource',
         generator: {
           filename: 'assets/fonts/[hash][ext][query]'

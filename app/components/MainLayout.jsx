@@ -12,7 +12,7 @@ function MainLayout() {
       <h4>{Config.appName}</h4>
       <h4>{L10n.t('hello')}</h4>
       <h4>{L10n.t('dynamicVariables', { variable: 'Hello' })}</h4>
-      <PrintName name={12345} />
+      <PrintName name="Hello Rohan" />
       <Outlet />
     </div>
   )

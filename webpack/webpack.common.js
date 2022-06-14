@@ -1,16 +1,15 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable no-undef */
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   entry: {
-    main: './app/index.jsx'
+    main: './app/index.jsx',
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.tsx', '.ts'],
   },
-  plugins: [
-    new MiniCssExtractPlugin()
-  ],
+  plugins: [new MiniCssExtractPlugin()],
   // optimization
   optimization: {
     runtimeChunk: 'single',
@@ -24,9 +23,11 @@ module.exports = {
           name(module) {
             // get the name. E.g. node_modules/packageName/not/this/part.js
             // or node_modules/packageName
-            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+            const packageName = module.context.match(
+              /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+            )[1]
             // npm package names are URL-safe, but some servers don't like @ symbols
-            return `npm.${packageName.replace('@', '')}`;
+            return `npm.${packageName.replace('@', '')}`
           },
         },
       },
@@ -51,7 +52,7 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        use: ['html-loader']
+        use: ['html-loader'],
       },
       {
         test: /\.(ts|js)x?$/,
@@ -74,16 +75,16 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/images/[hash][ext][query]'
-        }
+          filename: 'assets/images/[hash][ext][query]',
+        },
       },
       {
         test: /\.(woff(2)?|eot|ttf|otf)$/,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/fonts/[hash][ext][query]'
-        }
-      }
-    ]
-  }
-};
+          filename: 'assets/fonts/[hash][ext][query]',
+        },
+      },
+    ],
+  },
+}

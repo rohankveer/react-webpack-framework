@@ -1,16 +1,18 @@
 interface Props {
   /** The user's name */
-  name: string;
+  name: string
   /** User's priority */
-  priority?: boolean;
+  priority?: boolean
 }
 
-const PrintName: React.FC<Props> = props => {
+const PrintName: React.FC<Props> = (props) => {
   return (
     <div>
-      <p style={{ fontWeight: props.priority ? 'bold' : 'normal' }}>{props.name}</p>
+      <p style={{ fontWeight: props.priority ? 'bold' : 'normal' }}>
+        {props.name}
+      </p>
     </div>
-  );
-};
+  )
+}
 
-export default PrintName;
+export default PrintName

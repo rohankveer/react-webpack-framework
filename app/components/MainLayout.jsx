@@ -5,8 +5,7 @@ import Debug from '../common/Debug'
 import PrintName from './PrintName'
 
 function MainLayout() {
-  Debug.log("Hello from log");
-  const b = 0;
+  Debug.log("Hello from log")
   return (
     <div id="main-wrapper">
       <SideBar />

@@ -1,87 +1,36 @@
 {
-  "env": {
-    "browser": true,
-    "es6": true,
-    "amd": true,
-    "jest": true
-  },
-  "extends": "eslint:recommended",
-  "parser": "@babel/eslint-parser",
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-      "jsx": true,
-      "modules": true
-    },
-    "ecmaVersion": 6,
-    "sourceType": "module",
-    "allowImportExportEverywhere": true
+    "ecmaVersion": 2020,
+    "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "babel",
-    "import",
-    "jest"
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:jsx-a11y/recommended",
+    "plugin:eslint-comments/recommended",
+    "plugin:prettier/recommended"
   ],
   "rules": {
-    "indent": [
-      "error",
-      2,
-      {
-        "SwitchCase": 1
-      }
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error"
     ],
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "semi": [
-      "error",
-      "always"
-    ],
-    "no-console": "off",
-    "no-class-assign": "off",
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error",
-    "no-useless-escape": 0,
-    "no-prototype-builtins": "off",
-    "no-redeclare": [
-      "error",
-      {
-        "builtinGlobals": false
-      }
-    ]
+    "@typescript-eslint/no-var-requires": "off",
+    "react/prop-types": "off",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off"
   },
-  "overrides": [
-    {
-      "files": [
-        "**/*.ts",
-        "**/*.tsx"
-      ],
-      "env": {
-        "browser": true,
-        "es6": true,
-        "node": true
-      },
-      "rules": {
-        "react/no-undef": "off"
-      },
-      "globals": {
-        "React": false
-      },
-      "extends": [
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended"
-      ],
-      "parser": "@typescript-eslint/parser",
-      "parserOptions": {
-        "project": "tsconfig.json"
-      },
-      "plugins": [
-        "@typescript-eslint"
-      ]
-    }
-  ],
   "globals": {
     "L10n": false,
     "moment": false,

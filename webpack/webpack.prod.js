@@ -1,14 +1,11 @@
 /* eslint-disable no-undef */
 const path = require('path');
-const common = require('./webpack.common');
-const { merge } = require('webpack-merge');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 
-module.exports = merge(common, {
+module.exports = {
   mode: 'production',
   output: {
     filename: '[name].[contenthash].bundle.js',
@@ -17,8 +14,9 @@ module.exports = merge(common, {
   },
   optimization: {
     minimizer: [
-      new OptimizeCssAssetsPlugin(),
-      new TerserPlugin(),
+      // eslint-disable-next-line quotes
+      `...`,
+      new CssMinimizerPlugin(),
       new HtmlWebpackPlugin({
         template: './app/index.html',
         favicon: 'images/favicon.png',
@@ -27,14 +25,14 @@ module.exports = merge(common, {
           collapseWhitespace: true,
           removeComments: true
         }
-      }),
-      new webpack.DefinePlugin({
-        __DEBUG__: false
       })
     ]
   },
   plugins: [
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new webpack.DefinePlugin({
+      __DEBUG__: false
+    })
   ],
   target: 'browserslist'
-});
+}

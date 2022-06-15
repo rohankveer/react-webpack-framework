@@ -4,11 +4,6 @@ const path = require('path')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var webpack = require('webpack')
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
-/* const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-
-if (process.env.DEBUG === 'analyze') {
-  plugins.push(new BundleAnalyzerPlugin());
-} */
 
 module.exports = {
   mode: 'development',
